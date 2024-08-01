@@ -1,2 +1,5 @@
 # Headers
-Simple addon for HTTP header manipulation
+
+![logo](icons/icon-48.png)
+<br />
+Simple extension for HTTP headers manipulation.

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="checkbox-wrapper-8">
+      <input class="tgl tgl-skewed" id="isActiveCheckbox" type="checkbox" />
+      <label
+        class="tgl-btn"
+        data-tg-off="OFF"
+        data-tg-on="ON"
+        for="isActiveCheckbox"
+      ></label>
+    </div>
+
+    <h3 class="title">Headers</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="headersTableBody"></tbody>
+    </table>
+    <div>
+      <input type="text" id="headerKeyInput" placeholder="Key" />
+      <input type="text" id="headerValueInput" placeholder="Value" />
+    </div>
+    <button id="addHeaderButton" type="submit">Add Header</button>
+  </body>
+</html>

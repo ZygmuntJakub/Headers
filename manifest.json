@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Headers",
+  "version": "1.0",
+  "description": "Simple extension for HTTP headers manipulation",
+  "homepage_url": "https://github.com/ZygmuntJakub/Headers",
+
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+
+  "permissions": ["webRequest", "storage", "webRequestBlocking", "<all_urls>"],
+
+  "browser_action": {
+    "default_icon": "icons/icon-32.png",
+    "default_title": "Headers",
+    "default_popup": "popup/index.html"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "headers@zygmuntjakub"
+    }
+  },
+
+  "background": {
+    "scripts": ["background/index.js"],
+    "persistent": true
+  }
+}
