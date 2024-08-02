@@ -15,6 +15,7 @@ isActiveCheckbox.addEventListener("click", () => {
   browser.storage.sync.get("isActive").then((result) => {
     browser.storage.sync.set({ isActive: !result.isActive });
     syncIsActive();
+    browser.runtime.sendMessage(result.isActive ? "deactivate" : "activate");
   });
 });
 
