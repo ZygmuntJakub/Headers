@@ -1,36 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <script type="module" src="index.js"></script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="checkbox-wrapper-8">
-      <input class="tgl tgl-skewed" id="isActiveCheckbox" type="checkbox" />
-      <label
-        class="tgl-btn"
-        data-tg-off="OFF"
-        data-tg-on="ON"
-        for="isActiveCheckbox"
-      ></label>
-    </div>
+    <head>
+        <meta charset="utf-8" />
+        <script type="module" src="index.js"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="nav">
+            <div class="checkbox-wrapper-8">
+                <input
+                    class="tgl tgl-skewed"
+                    id="isActiveCheckbox"
+                    type="checkbox"
+                />
+                <label
+                    class="tgl-btn"
+                    data-tg-off="OFF"
+                    data-tg-on="ON"
+                    for="isActiveCheckbox"
+                ></label>
+            </div>
+            <a href="https://buymeacoffee.com/zygmunt" target="_blank"
+                >☕️ Buy me a coffee</a
+            >
+        </div>
 
-    <h3 class="title">Headers</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Key</th>
-          <th>Value</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="headersTableBody"></tbody>
-    </table>
-    <div>
-      <input type="text" id="headerKeyInput" placeholder="Key" />
-      <input type="text" id="headerValueInput" placeholder="Value" />
-    </div>
-    <button id="addHeaderButton" type="submit">Add Header</button>
-  </body>
+        <h3 class="title">Headers</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="headersTableBody"></tbody>
+            </table>
+        </div>
+        <div class="add-header">
+            <input type="text" id="headerKeyInput" placeholder="Key" />
+            <input type="text" id="headerValueInput" placeholder="Value" />
+            <button id="addHeaderButton" type="submit">Add Header</button>
+        </div>
+    </body>
 </html>

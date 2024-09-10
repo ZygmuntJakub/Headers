@@ -9,34 +9,44 @@ async function addHeadersFromStorage(e) {
       return { requestHeaders: e.requestHeaders };
     }
 
-    return browser.storage.sync.get("headers").then(({ headers } = {}) => {
-      if (headers) {
-        for (const [key, value] of Object.entries(headers)) {
-          e.requestHeaders.push({ name: key, value });
-        }
-      }
+    return browser.storage.sync
+      .get("headers")
+      .then(async ({ headers } = {}) => {
+        const { disabledHeaders = {} } =
+          await browser.storage.sync.get("disabledHeaders");
 
-      return { requestHeaders: e.requestHeaders };
-    });
+        if (headers) {
+          for (const [key, value] of Object.entries(headers)) {
+            if (disabledHeaders[key]) {
+              continue;
+            }
+            e.requestHeaders.push({ name: key, value });
+          }
+        }
+
+        return { requestHeaders: e.requestHeaders };
+      });
   });
 }
 
-browser.runtime.onMessage.addListener((message) => {
+const run = (message) => {
   if (message === "activate") {
     syncIcon(true);
     browser.webRequest.onBeforeSendHeaders.addListener(
       addHeadersFromStorage,
       { urls: ["<all_urls>"] },
-      ["blocking", "requestHeaders"]
+      ["blocking", "requestHeaders"],
     );
   } else if (message === "deactivate") {
     syncIcon(false);
     browser.webRequest.onBeforeSendHeaders.removeListener(
-      addHeadersFromStorage
+      addHeadersFromStorage,
     );
   }
-});
+};
+
+browser.runtime.onMessage.addListener(run);
 
 browser.storage.sync.get("isActive").then(({ isActive } = {}) => {
-  syncIcon(isActive);
+  run(isActive ? "activate" : "deactivate");
 });
