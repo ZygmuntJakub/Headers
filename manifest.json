@@ -1,12 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Headers",
-  "version": "1.1",
+  "version": "1.3",
   "description": "Simple extension for HTTP headers manipulation",
   "homepage_url": "https://github.com/ZygmuntJakub/Headers",
 
   "icons": {
-    "48": "icons/icon-48.png"
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
 
   "permissions": ["webRequest", "storage", "webRequestBlocking", "<all_urls>"],
