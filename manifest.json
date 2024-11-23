@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Headers",
-  "version": "1.3",
+  "version": "1.4",
   "description": "Simple extension for HTTP headers manipulation",
   "homepage_url": "https://github.com/ZygmuntJakub/Headers",
 
@@ -11,9 +11,10 @@
     "128": "icons/icon-128.png"
   },
 
-  "permissions": ["webRequest", "storage", "webRequestBlocking", "<all_urls>"],
+  "permissions": ["webRequest", "storage", "declarativeNetRequest"],
+  "host_permissions": ["<all_urls>"],
 
-  "browser_action": {
+  "action": {
     "default_icon": "icons/icon-32.png",
     "default_title": "Headers",
     "default_popup": "popup/index.html"
@@ -26,7 +27,6 @@
   },
 
   "background": {
-    "scripts": ["background/index.js"],
-    "persistent": true
+    "service_worker": "background/index.js"
   }
 }
